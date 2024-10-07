@@ -3,7 +3,8 @@ const MySql = require("./MySql");
 
 exports.execQuery = async function (query) {
     let returnValue = []
-const connection = await MySql.connection();
+    const connection = await MySql.connection();
+    console.log('connection', connection);
     try {
     await connection.query("START TRANSACTION");
     returnValue = await connection.query(query);
@@ -16,4 +17,3 @@ const connection = await MySql.connection();
   }
   return returnValue
 }
-
